@@ -12,6 +12,7 @@ export default function Home() {
     <>
       <Head>
         <title>Home - Netops Ninjas</title>
+        <meta name="robots" content="noindex">
       </Head>
       <main>
         <HeroSectionComingSoon />
