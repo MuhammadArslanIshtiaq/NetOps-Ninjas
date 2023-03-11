@@ -3,13 +3,13 @@ import Link from "next/link";
 import React from "react";
 
 const links = [
-  { link: "/networking", name: "Networking" },
-  { link: "/infrastructure", name: "Infrastructure" },
-  { link: "/clouds", name: "Clouds" },
-  { link: "/firewalls", name: "Firewalls" },
-  { link: "/quality-assurance", name: "Quality Assurance" },
-  { link: "/ui-ux", name: "UI/UX" },
-  { link: "/digital-marketing", name: "Digital Marketing" },
+  { link: "/", name: "Networking" },
+  { link: "/", name: "Infrastructure" },
+  { link: "/", name: "Clouds" },
+  { link: "/", name: "Firewalls" },
+  // { link: "/quality-assurance", name: "Quality Assurance" },
+  // { link: "/ui-ux", name: "UI/UX" },
+  // { link: "/digital-marketing", name: "Digital Marketing" },
 ];
 
 const ServicesMenu = ({ onClick }) => {

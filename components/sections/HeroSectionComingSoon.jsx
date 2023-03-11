@@ -100,7 +100,7 @@ const HeroSection = () => {
         />
       </span>
       <span className="absolute top-0 left-0 w-full h-full"></span>
-      <div className="relative z-10 py-10 sm:py-32 md:py-44 lg:py-52 text-white">
+      <div className="relative z-10 py-10 sm:py-32 md:py-44  text-white">
         <Container>
           <div className="flex justify-center">
             <img
@@ -119,6 +119,23 @@ const HeroSection = () => {
             </p>
             <p className="text-lg font-bold">Contact us @</p>
             <p>Support@netopsninjas.com | Sales@netopsninjas.com</p>
+          </div>
+          <div className="text-center mx-auto pt-5">
+          <p className="text-lg font-bold">Our Partners</p>
+          <div className="flex justify-center gap-x-5">
+            <img
+              width={100}
+              height={83}
+              src="/assets/images/partner-cisco.png"
+              alt=".."
+            />
+             <img
+              width={150}
+              height={125}
+              src="/assets/images/partner-meraki.png"
+              alt=".."
+            />
+          </div>
           </div>
         </Container>
       </div>

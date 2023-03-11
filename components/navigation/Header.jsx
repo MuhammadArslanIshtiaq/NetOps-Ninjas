@@ -10,9 +10,9 @@ import ServicesMenu from "../menus/ServicesMenu";
 const navigation = {
   links: [
     { link: "/", name: "Home" },
-    { menuLink: "/services", name: "Services", menu: ServicesMenu },
-    { link: "/about", name: "About" },
-    { link: "/contact", name: "contact" },
+    { menuLink: "/", name: "Services", menu: ServicesMenu },
+    // { link: "/about", name: "About" },
+    // { link: "/contact", name: "contact" },
   ],
 };
 
