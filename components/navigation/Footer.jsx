@@ -75,7 +75,7 @@ export default function Footer() {
         Footer
       </h2>
       <Container>
-        <div className="py-12 lg:py-16 border-t border-gray-500">
+        {/* <div className="py-12 lg:py-16 border-t border-gray-500">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8 xl:col-span-1">
               <Link href="/" className="block relative h-12 w-80">
@@ -138,9 +138,9 @@ export default function Footer() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="py-8 border-t border-gray-400 md:flex md:items-center md:justify-between">
-          <div className="flex space-x-6 md:order-2">
+        </div> */}
+        <div className="py-8 border-t border-gray-400 md:flex md:items-center md:justify-center">
+          {/* <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
               <a
                 key={item.name}
@@ -151,9 +151,9 @@ export default function Footer() {
                 <item.icon className="h-6 w-6" aria-hidden="true" />
               </a>
             ))}
-          </div>
-          <p className="mt-8 text-base text-gray-100 md:order-1 md:mt-0">
-            &copy; 2021 Filesis All rights reserved.
+          </div> */}
+          <p className="mt-8 text-base text-gray-100 md:order-1 md:mt-0 text">
+            &copy; 2023 NetOpsNinjas | All rights reserved.
           </p>
         </div>
       </Container>

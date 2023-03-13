@@ -1,12 +1,42 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import CtaSection from "../../components/sections/CtaSection";
+import React, { useState } from "react";
+import Footer from "../../components/navigation/Footer";
 import Container from "../../components/utils/Container";
 import { ArrowFullTwoIcon, UploadIcon } from "../../components/utils/Icons";
 
+
+
 const SupportPage = () => {
+  const [firstname, setfirstname] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+     
+      const res = await fetch("/api/mail", {
+        body: JSON.stringify({
+          firstname: firstname,
+          subject: subject,
+          message: message,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+
+      const { error } = await res.json();
+      if (error) {
+        console.log(error);
+        return;
+      }
+    console.log(fullname, email, subject, message);
+  };
   return (
     <>
       <Head>
@@ -76,32 +106,33 @@ const SupportPage = () => {
           <Container>
             <div className="mb-12 max-w-4xl mx-auto text-center pt-2">
               <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold leading-tight sm:leading-tight xl:leading-tight">
-                Lorem Ipsum Dolor Sit Amet Consisc
+               Contact us
               </h2>
               <p className="mt-6 text-[1.375rem] text-gray-400">
-                Lorem ipsum dolor sit amet consectetur. Justo in rho orci velit
-                placerat enim. Convallis vitae enim vitae mauris cursus vitae
-                urna amet.
+              Should you wish to contact us, please email us or submit your message via the form.
               </p>
             </div>
             <div className="mx-auto max-w-6xl">
-              <form noValidate>
+              <form  onSubmit={handleSubmit}>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <li>
                     <div>
                       <label
                         className="capitalize block text-lg font-semibold mb-2"
-                        htmlFor="FirstName"
+                        htmlFor="firstname"
                       >
                         First Name
                       </label>
                       <input
                         className="w-full p-5 rounded-lg bg-info border border-gray-500 focus:border-l-pink-500 focus:border-t-pink-500 focus:border-r-secondary focus:border-b-secondary  focus-visible:outline-0 placeholder:text-gray-300"
                         type="text"
-                        id="FirstName"
-                        name="FirstName"
+                        id="firstname"
+                        name="firstname"
                         placeholder="John"
                         required
+                        onChange={(e) => {
+                          setfirstname(e.target.value);
+                        }}
                       />
                     </div>
                   </li>
@@ -109,15 +140,15 @@ const SupportPage = () => {
                     <div>
                       <label
                         className="capitalize block text-lg font-semibold mb-2"
-                        htmlFor="LastName"
+                        htmlFor="lastname"
                       >
                         Last Name
                       </label>
                       <input
                         className="w-full p-5 rounded-lg bg-info border border-gray-500 focus:border-l-pink-500 focus:border-t-pink-500 focus:border-r-secondary focus:border-b-secondary  focus-visible:outline-0 placeholder:text-gray-300"
                         type="text"
-                        id="LastName"
-                        name="LastName"
+                        id="lastname"
+                        name="lastname"
                         placeholder="Doe"
                         required
                       />
@@ -128,7 +159,7 @@ const SupportPage = () => {
                     <div>
                       <label
                         className="capitalize block text-lg font-semibold mb-2"
-                        htmlFor="FirstName"
+                        htmlFor="phone-number"
                       >
                         Phone Number
                       </label>
@@ -144,6 +175,7 @@ const SupportPage = () => {
                             autoComplete="country"
                             className="h-full rounded-l-lg bg-info border-0 border-r border-gray-500 py-0 pl-3 pr-7 sm:text-sm"
                           >
+                            <option>UK</option>
                             <option>US</option>
                             <option>CA</option>
                             <option>EU</option>
@@ -168,6 +200,9 @@ const SupportPage = () => {
                         Subject
                       </label>
                       <select
+                       onChange={(e) => {
+                        setSubject(e.target.value);
+                      }}
                         id="subject"
                         name="subject"
                         className="w-full p-5 rounded-lg bg-info border border-gray-500 focus:border-l-pink-500 focus:border-t-pink-500 focus:border-r-secondary focus:border-b-secondary  focus-visible:outline-0 placeholder:text-gray-300"
@@ -175,8 +210,8 @@ const SupportPage = () => {
                         <option selected disabled value="-">
                           Please Select
                         </option>
-                        <option value="Canada">Canada</option>
-                        <option value="Mexico">Mexico</option>
+                        <option value="Support">Support</option>
+                        <option value="Sales">Sales</option>
                       </select>
                     </div>
                   </li>
@@ -196,8 +231,10 @@ const SupportPage = () => {
                         <option selected disabled value="-">
                           Please Select
                         </option>
-                        <option value="Canada">Canada</option>
-                        <option value="Mexico">Mexico</option>
+                        <option value="Networking">Networking</option>
+                        <option value="Infrastructure">Infrastructure</option>
+                        <option value="Clouds">Clouds</option>
+                        <option value="Firewalls">Firewalls</option>
                       </select>
                     </div>
                   </li>
@@ -215,6 +252,9 @@ const SupportPage = () => {
                         type="text"
                         id="Message"
                         name="Message"
+                        onChange={(e) => {
+                          setMessage(e.target.value);
+                        }}
                       />
                     </div>
                   </li>
@@ -264,7 +304,8 @@ const SupportPage = () => {
             </div>
           </Container>
         </section>
-        <CtaSection />
+        {/* <CtaSection /> */}
+        <Footer/>
       </main>
     </>
   );

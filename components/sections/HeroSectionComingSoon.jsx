@@ -4,6 +4,7 @@ import React from "react";
 import Container from "../utils/Container";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import Footer from "../navigation/Footer";
 
 const HeroSection = () => {
   const particlesInit = async (main) => {
@@ -14,9 +15,9 @@ const HeroSection = () => {
   };
   return (
     <section className="relative pt-20">
-      <span className="z-10 absolute top-0 left-0 w-full h-screen opacity-90">
+      <span className="z-10 absolute top-0 left-0 w-full h-full opacity-90">
         <Image
-          className="object-cover opacity-50"
+          className="object-cover opacity-50 h-full"
           fill
           src="/assets/images/bg-hero.png"
           alt="..."
@@ -122,23 +123,34 @@ const HeroSection = () => {
           </div>
           <div className="text-center mx-auto pt-5">
           <p className="text-lg font-bold">Our Partners</p>
-          <div className="flex justify-center gap-x-5">
+          <div className="flex justify-center gap-x-10 pt-5">
+            <a href="https://www.cisco.com/site/us/en/index.html" target="_new">
             <img
-              width={100}
-              height={83}
-              src="/assets/images/partner-cisco.png"
-              alt=".."
-            />
-             <img
               width={150}
               height={125}
+              src="/assets/images/partner-cisco.png"
+              alt="Our Partner Cisco"
+            /></a>
+             <a href="https://meraki.cisco.com/" target="_new">
+             <img
+               width={150}
+               height={125}
               src="/assets/images/partner-meraki.png"
-              alt=".."
+              alt="Our Partner Meraki Cisco"
+            /></a>
+             <a href="https://www.extremenetworks.com/" target="_new">
+             <img
+              width={200}
+              height={167}
+              src="/assets/images/partner-extreme.png"
+              alt="Our Partner Extreme Networks"
             />
+            </a>
           </div>
           </div>
         </Container>
       </div>
+      <Footer/>
     </section>
   );
 };
